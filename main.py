@@ -50,16 +50,20 @@ class MainWindow(QMainWindow):
         global hp_drakon, mi_hp
         if hp_drakon == 0:
             print("вы победили")
+        elif mi_hp == 0:
+            print("вы пали в бою")
         else:
             hp_drakon -= 25
             mi_hp -= 10
             print(f"вы атоковали дракона, он нанес ответный удар HP дракона:{hp_drakon} HP главного героя:{mi_hp}")
 
-
     def activate_tab_2(self):
         global hp_drakon, mi_hp
-        mi_hp -= 5
-        print(f"дракон атакует! но вы заблокировали часть урона HP главного героя:{mi_hp}")
+        if mi_hp == 0:
+            print("вы пали в бою")
+        else:
+            mi_hp -= 5
+            print(f"дракон атакует! но вы заблокировали часть урона HP главного героя:{mi_hp}")
 
     def activate_tab_3(self):
         global hp_drakon, mi_hp
